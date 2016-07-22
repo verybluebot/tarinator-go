@@ -11,7 +11,7 @@ func TestTarGzFromFiles(t *testing.T) {
         "test_files/",
     }
 
-    err := TarGzFromFiles(paths, "output_test.tar.gz")
+    err := Tarinate(paths, "output_test.tar.gz")
     if err != nil {
         t.Errorf("Failed: %s\n", err)
         return
@@ -24,7 +24,7 @@ func TestUnTarGzFromFiles(t *testing.T) {
         return
     }
 
-    err := untarit("/tmp", "output_test.tar.gz")
+    err := UnTarinate("/tmp", "output_test.tar.gz")
     if err != nil {
         t.Errorf("Failed untaring: %s\n", err)
         return

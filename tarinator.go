@@ -10,7 +10,7 @@ import(
     "compress/gzip"
 )
 
-func TarGzFromFiles(paths []string, tarPath string) error {
+func Tarinate(paths []string, tarPath string) error {
     file, err := os.Create(tarPath)
     if err != nil {
         return err
@@ -81,7 +81,7 @@ func tarit(source, target string, tw *tar.Writer) error {
         })
 }
 
-func untarit(extractPath, sourcefile string) error {
+func UnTarinate(extractPath, sourcefile string) error {
     file, err := os.Open(sourcefile)
 
     if err != nil {
