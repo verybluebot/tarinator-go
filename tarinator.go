@@ -30,7 +30,7 @@ func Tarinate(paths []string, tarPath string) error {
     defer tw.Close()
 
     for _,i := range paths {
-        if err := tarit(i, "", tw); err != nil {
+        if err := tarwalk(i, "", tw); err != nil {
             return err
         }
     }
@@ -38,7 +38,7 @@ func Tarinate(paths []string, tarPath string) error {
     return nil
 }
 
-func tarit(source, target string, tw *tar.Writer) error {
+func tarwalk(source, target string, tw *tar.Writer) error {
     info, err := os.Stat(source)
     if err != nil {
         return nil
@@ -68,6 +68,10 @@ func tarit(source, target string, tw *tar.Writer) error {
             }
 
             if info.IsDir() {
+                return nil
+            }
+
+            if !info.Mode().IsRegular() {
                 return nil
             }
 
