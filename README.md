@@ -1,4 +1,4 @@
-# Golang CLI Tarinator Example
+# Tarinator-go
 ## Genaral
 Tarinator-go a Golang package that simplifies creating tar files and compressing/decompressing
 them using gzip.
