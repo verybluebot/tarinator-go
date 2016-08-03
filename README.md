@@ -23,8 +23,8 @@ import(
 )
 
 paths := []string{
-    "someFile",
-    "someOtherFile",
+    "someFile.txt",
+    "someOtherFile.json",
     "someDir/",
     "some/path/to/dir/",
 }
