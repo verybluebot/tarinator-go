@@ -60,7 +60,7 @@ func tarwalk(source, target string, tw *tar.Writer) error {
 			}
 
 			if baseDir != "" {
-				header.Name = (filepath.Join(baseDir, strings.TrimPrefix(path, source)))
+				header.Name = filepath.ToSlash(filepath.Join(baseDir, strings.TrimPrefix(path, source)))
 			}
 
 			if err := tw.WriteHeader(header); err != nil {
@@ -114,7 +114,7 @@ func UnTarinate(extractPath, sourcefile string) error {
 			return err
 		}
 
-		filename := filepath.Join(extractPath, (header.Name))
+		filename := filepath.Join(extractPath, filepath.FromSlash(header.Name))
 
 		switch header.Typeflag {
 		case tar.TypeDir:
